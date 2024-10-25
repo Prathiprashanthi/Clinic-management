@@ -1,0 +1,402 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Clinic Management System </title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description"
+        content="Gradient Able Bootstrap admin template made using Bootstrap 4. The starter version of Gradient Able is completely free for personal project." />
+    <meta name="keywords"
+        content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+    <meta name="author" content="codedthemes">
+    <!-- Favicon icon -->
+    <link href="{% static 'admin/images/favicon.ico' %}" rel="icon" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link href="{% static 'admin/css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- themify-icons line icon -->
+    <link href="{% static 'admin/icon/themify-icons/themify-icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'admin/icon/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- ico font -->
+    <link href="{% static 'admin/icon/icofont/css/icofont.css' %}" rel="stylesheet" type="text/css">
+    <!-- Style.css -->
+    <link href="{% static 'admin/css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'admin/css/jquery.mCustomScrollbar.css' %}" rel="stylesheet" type="text/css">
+    <style>
+        .custom-img {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+        }
+    </style>
+</head>
+
+
+<body>
+   
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+
+                        <a href="admindashboard.html">
+                            <h2 style="margin-left: 20px;">
+                            Admin
+                        </h2>
+                        </a>
+
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+
+                        <ul class="nav-right">
+
+                            <li class="user-profile header-notification">
+                                <a href="#!">
+                                    <img src="{% static 'admin/images/avatar-4.jpg' %}" class="img-radius" alt="User-Profile-Image">
+                                    <span>Admin</span>
+                                    <i class="ti-angle-down"></i>
+                                </a>
+                                <ul class="show-notification profile-notification">
+                                    <li>
+                                        <a href="{% url 'user_admin' %}">
+                                            <i class="ti-layout-sidebar-left"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu">
+
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation"></div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="active">
+                                    <a href="{% url 'admin_dashboard' %}">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Clinic
+                                            Management</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="{% url 'admin_Pendingrequests' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.alert">Pending Patients Details</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'admin_manageclinic' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.breadcrumbs">Manage Patients Details</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href=" {% url  'admin_clinicdetails' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.breadcrumbs">Clinic Details</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href=" {% url  'admin_manage_clinic' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.breadcrumbs">Manage Clinic Details</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-direction-alt"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Appointment
+                                            Details</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="{% url 'admin_viewappointments' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">View
+                                                    Appointments</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Doctor
+                                            Management</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="{% url 'admin_pendingdoctors' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.alert">Pending Doctors</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'admin_alldoctors' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.breadcrumbs">All Doctors</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Feedback
+                                            Management</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="{% url 'admin_Feedback' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.alert">Feedback Details</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'admin_sentimentanalysis' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext"
+                                                    data-i18n="nav.basic-components.alert">Sentiment Analysis</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'admin_sentimentgraph' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Graph
+                                                    Analysis</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                <div class="content-body">
+                    <main id="main" class="main" style="margin-left:200px; margin-right:20px;" >
+            
+            
+            
+                        <section class="section">
+                            <div class="row">
+                                <div class="col-lg-12">
+            
+                                    <div class="card-body" style="text-align: center;">
+            
+            
+                                        <section class="section">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+            
+                                                    <div class="card" style="margin-left: 100px;" >
+                                                        <h5 class="card-title">Sentiment Analysis Graph</h5>
+                                                        </span>
+            
+                                                        <div class="card-body">
+            
+                                                            </span>
+                                                            <section class="section">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+            
+                                                                        <thead>
+                                                                            <tr>
+            
+            
+                                                                                <script
+                                                                                    src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                                                                <style>
+                                                                                    /* Adjust the height of the container to make the graph taller */
+                                                                                    #graphContainer {
+                                                                                        width: 80%;
+                                                                                        height: 400px;
+                                                                                        /* Set the desired height here */
+                                                                                        margin: auto;
+                                                                                    }
+                                                                                </style><br><br>
+            
+                                                                                <div id="graphContainer">
+                                                                                    <canvas id="feedbackChart"></canvas>
+                                                                                </div>
+            
+                                                                                <script>
+                                                                                    // Sample feedback data (replace this with your actual data)
+                                                                                    const feedbackData = {
+                                                                                        labels: ['Very Positive', 'Positive', 'Neutral', 'Negative', 'Very Nagative'],
+                                                                                        datasets: [{
+                                                                                            label: 'Feedback',
+                                                                                            data: [{{ vp }}, {{ p }}, {{ ne }}, {{ n }}, {{ vn }}], // You can change these values to represent your actual feedback counts
+                                                                                            backgroundColor: [
+                                                                                                'rgba(33, 174, 22, 1)',
+                                                                                                'rgba(165, 223, 223, 255)',
+                                                                                                'rgba(255, 99, 132, 0.5)',
+                                                                                                'rgba(255,230,170,255)',
+                                                                                                'rgba(174, 22, 44, 1)',
+                                                                                            ],
+                                                                                            borderColor: [
+            
+            
+            
+                                                                                            ],
+                                                                                            borderWidth: 1
+                                                                                        }]
+                                                                                    };
+            
+                                                                                    // Configuration options for the chart
+                                                                                    const chartOptions = {
+                                                                                        responsive: true,
+                                                                                        maintainAspectRatio: false,
+                                                                                        scales: {
+                                                                                            y: {
+                                                                                                beginAtZero: true
+                                                                                            }
+                                                                                        }
+                                                                                    };
+            
+                                                                                    // Create the chart
+                                                                                    const feedbackChart = new Chart(document.getElementById('feedbackChart'), {
+                                                                                        type: 'bar',
+                                                                                        data: feedbackData,
+                                                                                        options: chartOptions
+                                                                                    });
+                                                                                </script>
+            
+            
+            
+            
+                                                                        </thead>
+                                                                        
+            
+            
+            
+            
+                                                            </section>
+            
+                    </main>
+                          
+                       
+                        
+    
+       
+                    <script type="text/javascript" src="{% static 'admin/js/jquery/jquery.min.js' %}"></script>
+                    <script type="text/javascript" src="{% static 'admin/js/jquery-ui/jquery-ui.min.js' %}"></script>
+                    <script type="text/javascript" src="{% static 'admin/js/popper.js/popper.min.js' %}"></script>
+                    <script type="text/javascript" src="{% static 'admin/js/bootstrap/js/bootstrap.min.js' %}"></script>
+                    <!-- jquery slimscroll js -->
+                    <script type="text/javascript" src="{% static 'admin/js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+                    <!-- modernizr js -->
+                    <script type="text/javascript" src="{% static 'admin/js/modernizr/modernizr.js' %}"></script>
+                    <!-- am chart -->
+                    <script src="{% static 'admin/pages/widget/amchart/amcharts.min.js' %}"></script>
+                    <script src="{% static 'admin/pages/widget/amchart/serial.min.js' %}"></script>
+                    <!-- Chart js -->
+                    <script type="text/javascript" src="{% static 'admin/js/chart.js/Chart.js' %}"></script>
+                    <!-- Todo js -->
+                    <script type="text/javascript " src="{% static 'admin/pages/todo/todo.js' %} "></script>
+                    <!-- Custom js -->
+                    <script type="text/javascript" src="{% static 'admin/pages/dashboard/custom-dashboard.min.js' %}"></script>
+                    <script type="text/javascript" src="{% static 'admin/js/script.js' %}"></script>
+                    <script type="text/javascript " src="{% static 'admin/js/SmoothScroll.js' %}"></script>
+                    <script src="{% static 'admin/js/pcoded.min.js' %}"></script>
+                    <script src="{% static 'admin/js/vartical-demo.js' %}"></script>
+                    <script src="{% static 'admin/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <script>swal({
+                           title: "Success!",
+                           text: "{{message}}",
+                           icon: "success",
+                           button: "OK",
+                       });
+                    </script>
+                    
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                    <script>swal({
+                           title: "Warning :)",
+                           text: "{{message}}",
+                           icon: "warning",
+                           button: "OK",
+                        
+                       });
+                    </script>
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                    <script>swal({
+                           title: "info :)",
+                           text: "{{message}}",
+                           icon: "info",
+                           button: "OK",
+                       });
+                    </script>
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <script>swal({
+                           title: "error :)",
+                           text: "{{message}}",
+                           icon: "error",
+                           button: "OK",
+                       });
+                    </script>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </body>
+                
+                </html>
