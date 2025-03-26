@@ -26,8 +26,11 @@ SECRET_KEY = 'django-insecure-%j#)h7_6*m*h+vx&tvvw3(f5s^d$bn=fxyum10et=mrsx!br+#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "clinic-management-2.onrender.com",  
+]
 
 # Application definition
 
@@ -83,6 +86,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
